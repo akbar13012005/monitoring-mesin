@@ -131,11 +131,10 @@
   /* ---------- kartu gauge utama ---------- */
   .gauge-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
     margin-bottom: 14px;
   }
-  @media (max-width: 820px) { .gauge-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 460px) { .gauge-grid { grid-template-columns: 1fr; } }
 
   .gauge-card {
@@ -244,181 +243,51 @@
     line-height: 1.7;
   }
 
-  /* ---------- raw data (collapsible, disembunyikan default) ---------- */
-  details.raw {
-    margin-top: 30px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 4px 16px;
-  }
-  details.raw summary {
-    cursor: pointer;
-    font-size: 0.76rem;
-    color: var(--text-dim);
-    padding: 10px 0;
-    list-style: none;
-  }
-  details.raw summary::-webkit-details-marker { display: none; }
-  details.raw pre {
-    margin: 0 0 14px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
+
+  /* ---------- footer ---------- */
+  .footer {
+    margin-top: 44px;
+    text-align: center;
+    font-size: 0.78rem;
     color: var(--text-muted);
-    white-space: pre-wrap;
-    word-break: break-all;
   }
-/* ---------- mobile optimization ---------- */
-@media (max-width: 600px) {
-  body {
-    padding: 14px 12px 36px;
+  .footer .tekno { color: var(--cyan); font-weight: 600; }
+  .footer .bro { color: #ffffff; font-weight: 600; }
+
+  /* ---------- mobile optimization ---------- */
+  @media (max-width: 600px) {
+    body { padding: 14px 12px 36px; }
+    .wrap { width: 100%; }
+    .topbar { align-items: flex-start; margin-bottom: 18px; gap: 10px; }
+    .brand { min-width: 0; }
+    .brand-name { font-size: 0.95rem; }
+    .brand-sub { font-size: 0.68rem; }
+    .topbar-right { width: auto; margin-left: auto; justify-content: flex-end; gap: 8px; }
+    .live-pill { min-width: 0; padding: 7px 10px; font-size: 0.72rem; }
+    .logout-btn { padding: 7px 11px; font-size: 0.72rem; }
+    .gauge-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; margin-bottom: 10px; }
+    .gauge-card { padding: 14px 12px 13px; min-width: 0; }
+    .gauge-label { font-size: 0.62rem; }
+    .gauge-value { font-size: clamp(1.35rem, 8vw, 1.8rem); margin-top: 8px; gap: 4px; white-space: nowrap; }
+    .gauge-value .unit { font-size: 0.68rem; }
+    .vibe-row { padding: 10px 12px; margin-bottom: 20px; font-size: 0.72rem; }
+    .vibe-badge { font-size: 0.65rem; padding: 4px 8px; }
+    .section-title { font-size: 0.88rem; margin: 22px 0 10px; }
+    .result-grid { grid-template-columns: 1fr; gap: 9px; }
+    .result-card { padding: 15px; }
+    .result-card h3 { font-size: 0.82rem; margin-bottom: 12px; }
+    .result-row .k { font-size: 0.7rem; }
+    .result-row .v { font-size: 0.9rem; }
+    .formula { font-size: 0.64rem; }
   }
 
-  .wrap {
-    width: 100%;
+  @media (max-width: 360px) {
+    body { padding-left: 9px; padding-right: 9px; }
+    .gauge-grid { gap: 7px; }
+    .gauge-card { padding-left: 10px; padding-right: 10px; }
+    .gauge-value { font-size: 1.25rem; }
+    .gauge-value .unit { font-size: 0.62rem; }
   }
-
-  .topbar {
-    align-items: flex-start;
-    margin-bottom: 18px;
-    gap: 10px;
-  }
-
-  .brand {
-    min-width: 0;
-  }
-
-  .brand-name {
-    font-size: 0.95rem;
-  }
-
-  .brand-sub {
-    font-size: 0.68rem;
-  }
-
-  .topbar-right {
-    width: 100%;
-    justify-content: space-between;
-    gap: 8px;
-  }
-
-  .live-pill {
-    flex: 1;
-    min-width: 0;
-    padding: 7px 10px;
-    font-size: 0.72rem;
-  }
-
-  .logout-btn {
-    padding: 7px 11px;
-    font-size: 0.72rem;
-  }
-
-  .gauge-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 9px;
-    margin-bottom: 10px;
-  }
-
-  .gauge-card {
-    padding: 14px 12px 13px;
-    min-width: 0;
-  }
-
-  .gauge-label {
-    font-size: 0.62rem;
-  }
-
-  .gauge-value {
-    font-size: clamp(1.35rem, 8vw, 1.8rem);
-    margin-top: 8px;
-    gap: 4px;
-    white-space: nowrap;
-  }
-
-  .gauge-value .unit {
-    font-size: 0.68rem;
-  }
-
-  .vibe-row {
-    padding: 10px 12px;
-    margin-bottom: 20px;
-    font-size: 0.72rem;
-  }
-
-  .vibe-badge {
-    font-size: 0.65rem;
-    padding: 4px 8px;
-  }
-
-  .section-title {
-    font-size: 0.88rem;
-    margin: 22px 0 10px;
-  }
-
-  .result-grid {
-    grid-template-columns: 1fr;
-    gap: 9px;
-  }
-
-  .result-card {
-    padding: 15px;
-  }
-
-  .result-card h3 {
-    font-size: 0.82rem;
-    margin-bottom: 12px;
-  }
-
-  .result-row .k {
-    font-size: 0.7rem;
-  }
-
-  .result-row .v {
-    font-size: 0.9rem;
-  }
-
-  .formula {
-    font-size: 0.64rem;
-  }
-
-  details.raw {
-    margin-top: 20px;
-    padding: 3px 12px;
-  }
-
-  details.raw summary {
-    font-size: 0.68rem;
-  }
-
-  details.raw pre {
-    font-size: 0.62rem;
-  }
-}
-
-@media (max-width: 360px) {
-  body {
-    padding-left: 9px;
-    padding-right: 9px;
-  }
-
-  .gauge-grid {
-    gap: 7px;
-  }
-
-  .gauge-card {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .gauge-value {
-    font-size: 1.25rem;
-  }
-
-  .gauge-value .unit {
-    font-size: 0.62rem;
-  }
-}
-
 </style>
 </head>
 <body>
@@ -433,8 +302,8 @@
           </svg>
         </div>
         <div>
-          <div class="brand-name">TEKNO<span>BRO</span></div>
-          <div class="brand-sub">Monitoring Mesin Pencacah</div>
+          <div class="brand-name">Monitoring Mesin Pencacah</div>
+          <div class="brand-sub">Teknik Industri ITERA</div>
         </div>
       </div>
 
@@ -443,7 +312,6 @@
           <span class="live-dot" id="liveDot"></span>
           <span id="liveText">Menghubungkan...</span>
         </div>
-        <a href="login.html" class="logout-btn">Keluar</a>
       </div>
     </div>
 
@@ -458,16 +326,6 @@
         <div class="gauge-label">Putaran<span class="status-dot green" id="dotRpm"></span></div>
         <div class="gauge-value" id="valRpm">-<span class="unit">RPM</span></div>
       </div>
-      <div class="gauge-card bezel">
-        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-        <div class="gauge-label">Tegangan<span class="status-dot green" id="dotTegangan"></span></div>
-        <div class="gauge-value" id="valTegangan">-<span class="unit">V</span></div>
-      </div>
-      <div class="gauge-card bezel">
-        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-        <div class="gauge-label">Baterai<span class="status-dot green" id="dotBaterai"></span></div>
-        <div class="gauge-value" id="valBaterai">-<span class="unit">%</span></div>
-      </div>
     </div>
 
     <div class="vibe-row">
@@ -480,11 +338,10 @@
       <div class="result-card">
         <h3>Kapasitas Mesin</h3>
         <div class="result-rows">
-          <div class="result-row"><span class="k">Mc (Kapasitas)</span><span class="v" id="valMc">- g/s</span></div>
+          <div class="result-row"><span class="k">Cc (Kapasitas)</span><span class="v" id="valMc">- g/s</span></div>
           <div class="result-row"><span class="k">Wt (berat awal)</span><span class="v" id="valWt">- g</span></div>
-          <div class="result-row"><span class="k">t (durasi)</span><span class="v" id="valT">- s</span></div>
+          <div class="result-row"><span class="k">T (durasi)</span><span class="v" id="valT">- s</span></div>
         </div>
-        <div class="formula">Mc = Wt ÷ t</div>
       </div>
       <div class="result-card">
         <h3>Efisiensi</h3>
@@ -492,14 +349,10 @@
           <div class="result-row"><span class="k">Efisiensi Chopper (ηc)</span><span class="v" id="valEtaC">- %</span></div>
           <div class="result-row"><span class="k">Bahan Terpotong (ηoc)</span><span class="v" id="valEtaOC">- %</span></div>
         </div>
-        <div class="formula">ηc = (Woc+Wnoc)/Wt × 100%<br>ηoc = Woc/Wt × 100%</div>
       </div>
     </div>
 
-    <details class="raw">
-      <summary>Lihat data mentah (JSON)</summary>
-      <pre id="rawJson">-</pre>
-    </details>
+    <div class="footer">Powered by <span class="tekno">tekno</span><span class="bro">bro.id</span></div>
   </div>
 
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
@@ -518,6 +371,9 @@
 
     const FRESHNESS_LIMIT_SEC = 10;   // ESP32 kirim tiap 2 detik - lebih dari ini dianggap terputus
 
+    // 1 kalau ESP32 kirim Wt dalam kg, 1000 kalau dikirim dalam gram
+    const WT_DIVISOR = 1;
+
     const liveDot = document.getElementById("liveDot");
     const liveText = document.getElementById("liveText");
 
@@ -533,13 +389,30 @@
       el.classList.add("flash");
     }
 
-    function batteryStatusClass(percent) {
-      if (percent > 50) return "green";
-      if (percent > 20) return "amber";
-      return "red";
+    // kondisi tidak ada data / terputus: semua status merah, semua nilai jadi 0
+    function setDisconnected(text) {
+      setLive("off", text);
+      ["dotBerat", "dotRpm"].forEach((id) => {
+        document.getElementById(id).className = "status-dot red";
+      });
+      ["valBerat", "valRpm"].forEach((id) => {
+        const el = document.getElementById(id);
+        el.firstChild.textContent = "0";
+        el.classList.remove("flash");
+      });
+      document.getElementById("valMc").textContent = "0 g/s";
+      document.getElementById("valWt").textContent = "0 g";
+      document.getElementById("valT").textContent = "0 s";
+      document.getElementById("valEtaC").textContent = "0 %";
+      document.getElementById("valEtaOC").textContent = "0 %";
+      const vibeBadge = document.getElementById("vibeBadge");
+      vibeBadge.textContent = "TIDAK AKTIF";
+      vibeBadge.className = "vibe-badge idle";
     }
 
     let lastEpoch = 0;
+    let receivedAny = false;
+    const startEpoch = Math.floor(Date.now() / 1000);
 
     try {
       firebase.initializeApp(firebaseConfig);
@@ -551,17 +424,24 @@
         (snapshot) => {
           const data = snapshot.val();
           if (!data) {
-            setLive("off", "Data kosong");
+            setDisconnected("Data kosong");
+            return;
+          }
+
+          lastEpoch = Number(data.lastUpdate) || 0;
+          receivedAny = true;
+
+          // data lama yang masih nyangkut di Firebase dianggap tidak ada data
+          if (lastEpoch > 0 && Math.floor(Date.now() / 1000) - lastEpoch > FRESHNESS_LIMIT_SEC) {
+            setDisconnected("Terputus");
             return;
           }
 
           flashValue(document.getElementById("valBerat"), (data.berat ?? "-"));
           flashValue(document.getElementById("valRpm"), (data.rpm ?? "-"));
-          flashValue(document.getElementById("valTegangan"), (data.tegangan ?? "-"));
-          flashValue(document.getElementById("valBaterai"), (data.baterai ?? "-"));
 
-          const battClass = batteryStatusClass(data.baterai ?? 0);
-          document.getElementById("dotBaterai").className = "status-dot " + battClass;
+          document.getElementById("dotBerat").className = "status-dot green";
+          document.getElementById("dotRpm").className = "status-dot green";
 
           const vibeBadge = document.getElementById("vibeBadge");
           if (data.getaran) {
@@ -572,34 +452,41 @@
             vibeBadge.className = "vibe-badge idle";
           }
 
+          // ---------- Kapasitas: Cc = (3.6 x 10^3 x Wt) / T  -> kg/jam ----------
           const kap = data.kapasitas || {};
-          document.getElementById("valMc").textContent = (kap.mc ?? "-") + " g/s";
-          document.getElementById("valWt").textContent = (kap.wt ?? "-") + " g";
-          document.getElementById("valT").textContent = (kap.t ?? "-") + " s";
+          const wtKg = Number(kap.wt) / WT_DIVISOR;
+          const T = Number(kap.t);
+          const cc = (T > 0 && isFinite(wtKg)) ? (3.6e3 * wtKg) / T : null;
+
+          document.getElementById("valMc").textContent = cc !== null ? cc.toFixed(2) + " g/s" : "- g/s";
+          document.getElementById("valWt").textContent = isFinite(wtKg) ? (wtKg * WT_DIVISOR).toFixed(3) + " g" : "- g";
+          document.getElementById("valT").textContent  = T > 0 ? T.toFixed(2) + " s" : "- s";
 
           const eff = data.efisiensi || {};
           document.getElementById("valEtaC").textContent = (eff.etaC ?? "-") + " %";
           document.getElementById("valEtaOC").textContent = (eff.etaOC ?? "-") + " %";
-
-          document.getElementById("rawJson").textContent = JSON.stringify(data, null, 2);
-
-          lastEpoch = data.lastUpdate || 0;
         },
         (error) => {
-          setLive("off", "Gagal membaca data");
+          setDisconnected("Gagal membaca data");
         }
       );
     } catch (err) {
-      setLive("off", "Gagal konek Firebase");
+      setDisconnected("Koneksi terputus");
     }
 
     // cek kesegaran data tiap detik - biar status "Live" beneran nyerminin
     // ESP32 masih ngirim, bukan cuma socket Firebase-nya yang masih nyambung
     setInterval(() => {
-      if (lastEpoch === 0) return;
       const nowEpoch = Math.floor(Date.now() / 1000);
+      if (lastEpoch === 0) {
+        // belum pernah ada data sama sekali setelah halaman dibuka
+        if (!receivedAny && nowEpoch - startEpoch > FRESHNESS_LIMIT_SEC) {
+          setDisconnected("Terputus");
+        }
+        return;
+      }
       if (nowEpoch - lastEpoch > FRESHNESS_LIMIT_SEC) {
-        setLive("off", "Terputus");
+        setDisconnected("Terputus");
       } else {
         setLive("on", "Live");
       }
